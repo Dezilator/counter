@@ -2,20 +2,29 @@
 <head></head>
 <body>
 <center><img src="logo.jpg"></center>
+Utolsó órai darabszám: <input type="text" id="pcs"><br>
+Eltelt idő (percben): <input type="text" id="time"><br>
 1-es számláló: <input type="text" id="counter1"><br>
 2-es számláló: <input type="text" id="counter2"><br>
 <br>
 <button onclick="count()">Számol!</button>
 <br>
-Összesen: <input type="text" id="result">
-
+Órai darabszám eddig: <input type="text" id="actual"><br>
+Várható órai darabszám: <input type="text" id="result"><br>
+Összes darabszám: <input type="text" id="now">
 <script>
 function count() {
     var c1 = Number(document.getElementById("counter1").value);
     var c2 = Number(document.getElementById("counter2").value);
-    var r = c1+c2;
+    var pcs = Number(document.getElementById("pcs").value);
+    var time = Number(document.getElementById("time").value);
+    var actualPcs = c1+c2-pcs;
+    var r = (60/time)*actualPcs;
+    var now = c1+c2;
+    document.getElementById("actual").value = actualPcs;
     document.getElementById("result").value = r;
-}
+	document.getElementById("now").value = now;
+	}
 </script> 
 
 
