@@ -4,27 +4,33 @@
 <center><img src="logo.jpg"></center>
 Utolsó darabszám: <input type="number" id="pcs"><br>
 Eltelt idő (percben): <input type="number" id="time"><br>
+Szünet+állásidő: <input type="number" id="breaks"><br>
 1-es számláló: <input type="number" id="counter1"><br>
 2-es számláló: <input type="number" id="counter2"><br>
 <br>
 <button onclick="count()" style="height: 50px; width: 50px; float: right;">OK</button>
 <br>
 Órai darabszám eddig: <input type="text" id="actual" style="width: 80px;"><br>
+Összes darabszám eddig: <input type="text" id="now" style="width: 80px;"><br>
 Várható órai darabszám: <input type="text" id="result" style="width: 80px;"><br>
-Összes darabszám: <input type="text" id="now" style="width: 80px;">
+Órára vetített darabszám: <input type="text" id="hourPcs" style="width: 80px;"><br>
 <a href="ammount.html" style = "float: right">Darabszám ellenőrző</a>
 <script>
 function count() {
     var c1 = Number(document.getElementById("counter1").value);
     var c2 = Number(document.getElementById("counter2").value);
     var pcs = Number(document.getElementById("pcs").value);
-    var time = Number(document.getElementById("time").value);
+     var breaks = Number(document.getElementById("breaks").value);
+    var time = Number(document.getElementById("time").value-breaks);
     var actualPcs = c1+c2-pcs;
-    var r = (60/time)*actualPcs;
+    var r = Math.round(((60-(time+breaks))/time)*actualPcs+actualPcs);
     var now = c1+c2;
+   
+    var hourPcs = Math.round((r/(60-breaks))*60);
     document.getElementById("actual").value = actualPcs;
     document.getElementById("result").value = r;
 	document.getElementById("now").value = now;
+	document.getElementById("hourPcs").value = hourPcs;
 	}
 </script> 
 
