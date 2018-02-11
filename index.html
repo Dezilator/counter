@@ -1,7 +1,7 @@
 <html>
 <head></head>
 <body>
-<center><img src="logo.jpg"></center>
+<p id="image"></p>
 Utolsó darabszám: <input type="number" id="pcs"><br>
 Eltelt idő (percben): <input type="number" id="time"><br>
 Szünet+állásidő: <input type="number" id="breaks"><br>
@@ -16,6 +16,8 @@ Várható órai darabszám: <input type="text" id="result" style="width: 80px;">
 Órára vetített darabszám: <input type="text" id="hourPcs" style="width: 80px;"><br>
 <a href="ammount.html" style = "float: right">Darabszám ellenőrző</a>
 <script>
+var w = screen.width;
+document.getElementById("image").innerHTML = "<img src='logo.jpg' width="+w+"></center>";
 function count() {
     var c1 = Number(document.getElementById("counter1").value);
     var c2 = Number(document.getElementById("counter2").value);

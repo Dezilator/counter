@@ -1,7 +1,7 @@
 <html>
 <head></head>
 <body>
-<center><img src="logo.jpg"></center>
+<p id="image"></p>
 Első raklapon: <input type="number" id="palettStart"><br>
 Kész raklapok: <input type="number" id="palettFinished"><br>
 Utolsó raklapon: <input type="number" id="palettEnd"><br>
@@ -17,6 +17,8 @@ Eltérés: <input type="text" id="diff" style="width: 120px;"><br>
 <p id="reason"></p>
 <a href="index.html" style="float: right" >Vissza</a>
 <script>
+var w = screen.width;
+document.getElementById("image").innerHTML = "<img src='logo.jpg' width="+w+"></center>";
 function count() {
     var pS = Number(288-document.getElementById("palettStart").value);
     var pF = Number(document.getElementById("palettFinished").value);
