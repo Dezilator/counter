@@ -1,0 +1,43 @@
+<html>
+<head></head>
+<body>
+<center><img src="logo.jpg"></center>
+Induló darabszám: <input type="number" id="palettStart"><br>
+Kész raklapok: <input type="number" id="palettFinished"><br>
+Utolsó raklapon: <input type="number" id="palettEnd"><br>
+Egyéb plusz: <input type="number" id="plus"><br>
+Számláló: <input type="number" id="counter"><br>
+Kiesők: <input type="number" id="nok"><br>
+
+<br>
+<button onclick="count()" style="height: 50px; width: 50px; float: right;">OK</button>
+<br>
+Csomagolva: <input type="text" id="packed" style="width: 80px;"><br>
+Eltérés: <input type="text" id="diff" style="width: 120px;"><br>
+Lehetséges okok: <p id="reason"></p>
+<a href="index.html" style="float: right" >Vissza</a>
+<script>
+function count() {
+    var pS = Number(document.getElementById("palettStart").value);
+    var pF = Number(document.getElementById("palettFinished").value);
+    var pE = Number(document.getElementById("palettEnd").value);
+    var plus= Number(document.getElementById("plus").value);
+    var counter = Number(document.getElementById("counter").value);
+    var nok = Number(document.getElementById("nok").value);
+    var packed = pS+pF*288+pE+plus-nok;
+    
+    if (packed > counter){
+    	var diff = packed-counter;
+    	document.getElementById("diff").value = "+"+diff+" a dobozokban";
+    	document.getElementById("reason").innerHTML = "-Lyuk a dobozban<br>-Elcsomagolt FVT<br>-Kihagyott FVT<br>-Kisebb az induló darabszám";
+    }else{
+    	var diff = counter-packed;
+    	document.getElementById("diff").value = "+"+diff+" a számlálóban";
+    	document.getElementById("reason").innerHTML = "-Kétszer lett tesztelve<br>-Több a kieső termék";
+    	 }
+	}
+</script> 
+
+
+</body>
+</html>
