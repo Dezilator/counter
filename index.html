@@ -2,7 +2,7 @@
 <head></head>
 <body>
 <p id="image"></p>
-Utolsó darabszám: <input type="number" id="pcs"><br>
+<!-- Utolsó darabszám: <input type="number" id="pcs"><br>
 Eltelt idő (percben): <input type="number" id="time"><br>
 Szünet+állásidő: <input type="number" id="breaks"><br>
 1-es számláló: <input type="number" id="counter1"><br>
@@ -15,11 +15,13 @@ Szünet+állásidő: <input type="number" id="breaks"><br>
 Várható órai darabszám: <input type="text" id="result" style="width: 80px;"><br>
 Órára vetített darabszám: <input type="text" id="hourPcs" style="width: 80px;"><br>
 <a href="ammount.html" style = "float: right">Darabszám ellenőrző</a>
+!-->
 <br>
 <script>
 //var w = screen.width;
 document.getElementById("image").innerHTML = "<img src='logo.jpg' width='200pS'></center>";
-function count() {
+
+/*function count() {
     var c1 = Number(document.getElementById("counter1").value);
     var c2 = Number(document.getElementById("counter2").value);
     var pcs = Number(document.getElementById("pcs").value);
@@ -34,8 +36,25 @@ function count() {
     document.getElementById("result").value = r;
 	document.getElementById("now").value = now;
 	document.getElementById("hourPcs").value = hourPcs;
-	}
+	}*/
 </script> 
+
+
+<form action="1830.html" >
+    <input type="submit" value="AL 1830"  />
+</form>
+<br>
+<br>
+<form action="1880.html" >
+    <input type="submit" value="GAL 1880" />
+</form>
+<br>
+<br>
+<form action="ixo.html" >
+    <input type="submit" value="IXO V" />
+</form>
+<br>
+
 <font size="1">v1.0<br>
 developed by Tibor Nagy</font>
 

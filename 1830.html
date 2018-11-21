@@ -1,0 +1,53 @@
+<html>
+<head></head>
+<body>
+<p id="image"></p>
+Első raklapon: <input type="number" id="palettStart"><br>
+Kész raklapok: <input type="number" id="palettFinished"><br>
+Utolsó raklapon: <input type="number" id="palettEnd"><br>
+Egyéb plusz: <input type="number" id="plus"><br>
+Számláló: <input type="number" id="counter"><br>
+Kiesők: <input type="number" id="nok"><br>
+
+<br>
+<button onclick="count()" style="height: 50px; width: 50px; float: right;">OK</button>
+<br>
+Csomagolva: <input type="text" id="packed" style="width: 80px;"><br>
+Eltérés: <input type="text" id="diff" style="width: 120px;"><br>
+<p id="reason"></p>
+<a href="index.html" style="float: right" >Vissza</a>
+<br>
+<script>
+//var w = screen.width;
+document.getElementById("image").innerHTML = "<img src='logo.jpg' width='200px'></center>";
+function count() {
+    var pS = Number(288-document.getElementById("palettStart").value);
+    var pF = Number(document.getElementById("palettFinished").value);
+    var pE = Number(document.getElementById("palettEnd").value);
+    var plus= Number(document.getElementById("plus").value);
+    var nok = Number(document.getElementById("nok").value);
+    var counter = Number(document.getElementById("counter").value-nok+plus);
+    var packed = pS+pF*288+pE;
+    
+    document.getElementById("diff").value = "0";
+    document.getElementById("reason").innerHTML= " ";
+    if (packed != counter){
+    	if (packed > counter){
+    	var diff = packed-counter;
+    	document.getElementById("diff").value = "+"+diff+" a dobozokban";
+    	document.getElementById("reason").innerHTML = "Lehetséges okok: <br>-Lyuk a dobozban<br>-Elcsomagolt FVT<br>-Kihagyott FVT<br>-Több termék volt az első raklapon<br>-Több volt a plusz termék";
+    	}else{
+    	var diff = counter-packed;
+    	document.getElementById("diff").value = "+"+diff+" a számlálóban";
+    	document.getElementById("reason").innerHTML = "Lehetséges okok: <br>-Többször lett tesztelve egy vagy több termék<br>-Több a kieső termék<br>-Kevesebb termék volt az első raklapon<br>-Kevesebb volt a plusz termék";
+    	}
+	}
+    	 document.getElementById("packed").value = packed;
+	}
+	
+</script> 
+<font size="1">v2.0<br>
+developed by Tibor Nagy</font>
+
+</body>
+</html>
